@@ -26,6 +26,5 @@ spec:
     targetPort: 8080
   selector:
     run: web2
-  type: NodePort
 # [END gke_load_balancing_web_service_v2_service_web2]
 ---
