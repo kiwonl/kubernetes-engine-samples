@@ -1,0 +1,97 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: http
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ingress-route
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - gateway
+  http:
+  - name: web1
+    match:
+    - uri:
+        prefix: /*
+    route:
+    - destination:
+        host: web1
+        port:
+          number: 8080
+  - name: web2
+    match:
+    - uri:
+        prefix: /v2/*
+    route:
+    - destination:
+        host: web2
+        port:
+          number: 8080
+  - name: web3
+    match:
+    - uri:
+        prefix: /v3/*
+    route:
+    - destination:
+        host: web3
+        port:
+          number: 8080
+  - name: web4
+    match:
+    - uri:
+        prefix: /v4/*
+    route:
+    - destination:
+        host: web4
+        port:
+          number: 8080
+  - name: web5
+    match:
+    - uri:
+        prefix: /v5/*
+    route:
+    - destination:
+        host: web5
+        port:
+          number: 8080
+  - name: web6
+    match:
+    - uri:
+        prefix: /v6/*
+    route:
+    - destination:
+        host: web6
+        port:
+          number: 8080
+  - name: web7
+    match:
+    - uri:
+        prefix: /v7/*
+    route:
+    - destination:
+        host: web7
+        port:
+          number: 8080
+  - name: web8
+    match:
+    - uri:
+        prefix: /v8/*
+    route:
+    - destination:
+        host: web8
+        port:
+          number: 8080

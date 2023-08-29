@@ -1,0 +1,66 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fanout-ingress
+  annotations:
+    kubernetes.io/ingress.class: "gce-internal"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web1
+            port:
+              number: 8080
+      - path: /v2/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web2
+            port:
+              number: 8080
+      - path: /v3/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web3
+            port:
+              number: 8080
+      - path: /v4/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web4
+            port:
+              number: 8080
+      - path: /v5/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web5
+            port:
+              number: 8080
+      - path: /v6/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web6
+            port:
+              number: 8080
+      - path: /v7/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web9
+            port:
+              number: 8080
+      - path: /v8/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web10
+            port:
+              number: 8080

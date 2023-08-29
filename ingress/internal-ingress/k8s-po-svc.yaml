@@ -1,0 +1,359 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web1
+spec:
+  selector:
+    matchLabels:
+      run: web1
+  template:
+    metadata:
+      labels:
+        run: web1
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web1
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web1
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web2
+spec:
+  selector:
+    matchLabels:
+      run: web2
+  template:
+    metadata:
+      labels:
+        run: web2
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web2
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web2
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web3
+spec:
+  selector:
+    matchLabels:
+      run: web3
+  template:
+    metadata:
+      labels:
+        run: web3
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web3
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web3
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web4
+spec:
+  selector:
+    matchLabels:
+      run: web4
+  template:
+    metadata:
+      labels:
+        run: web4
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web4
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web4
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web5
+spec:
+  selector:
+    matchLabels:
+      run: web5
+  template:
+    metadata:
+      labels:
+        run: web5
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web5
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web5
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web6
+spec:
+  selector:
+    matchLabels:
+      run: web6
+  template:
+    metadata:
+      labels:
+        run: web6
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web6
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web6
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web6
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web7
+spec:
+  selector:
+    matchLabels:
+      run: web7
+  template:
+    metadata:
+      labels:
+        run: web7
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web7
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web7
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web7
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web8
+spec:
+  selector:
+    matchLabels:
+      run: web8
+  template:
+    metadata:
+      labels:
+        run: web8
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web8
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web8
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web8
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web9
+spec:
+  selector:
+    matchLabels:
+      run: web9
+  template:
+    metadata:
+      labels:
+        run: web9
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web9
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web9
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web9
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web10
+spec:
+  selector:
+    matchLabels:
+      run: web10
+  template:
+    metadata:
+      labels:
+        run: web10
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.9
+        imagePullPolicy: IfNotPresent
+        name: web10
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web10
+  namespace: default
+  annotations:
+    cloud.google.com/backend-config: '{"default": "my-backendconfig"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: web10
