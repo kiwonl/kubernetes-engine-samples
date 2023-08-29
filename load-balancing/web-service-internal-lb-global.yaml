@@ -23,7 +23,8 @@ metadata:
     networking.gke.io/internal-load-balancer-allow-global-access: "true"
 spec:
   ports:
-  - protocol: TCP
+  - port: 80
+    protocol: TCP
     targetPort: 8080
   selector:
     run: web
