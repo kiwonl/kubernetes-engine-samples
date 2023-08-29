@@ -22,7 +22,8 @@ metadata:
     networking.gke.io/load-balancer-type: "Internal"
 spec:
   ports:
-  - protocol: TCP
+  - port: 80
+    protocol: TCP
     targetPort: 8080
   selector:
     run: web
